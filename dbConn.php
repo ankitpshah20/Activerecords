@@ -2,10 +2,10 @@
 
 ini_set('display_errors', 'On');
 error_reporting(E_ALL);
-define('DATABASE', '');
-define('USERNAME', '');
-define('PASSWORD', '');
-define('CONNECTION', '');
+define('DATABASE', 'aps86');
+define('USERNAME', 'aps86');
+define('PASSWORD', 'Ankit@2094');
+define('CONNECTION', 'sql1.njit.edu');
 class dbConn{
     //variable to hold connection object.
     protected static $db;
