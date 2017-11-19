@@ -26,7 +26,21 @@ class model {
         echo 'I just saved record id = ' . $this->id.'<br>';
     }
     private function update() {
-       
+       $modelName1=static::$modelName;
+        $tableName = $modelName1::tableName();
+        $array = get_object_vars($this);
+        array_pop($array);
+        $temp=' ';
+        $array1='';
+        foreach($array as $key=>$value){
+          $array1.=$temp.$key.'="'.$value.'"';
+          $temp=", ";
+        }
+        $sql= 'update '.$tableName.' SET'.$array1.' where id='.$this->id;
+        $db = dbConn::getConnection();
+        $statement = $db->prepare($sql);
+        $statement->execute();
+        echo 'I just updated record id = ' . $this->id.'<br>';
     }
     public function delete() {
        
