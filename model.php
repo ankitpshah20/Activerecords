@@ -13,7 +13,7 @@ class model {
     private function insert() {
         $modelName1=static::$modelName;
         $tableName = $modelName1::tableName();
-        $this->id=12;
+        $this->id=26;
         $array = get_object_vars($this);
         array_pop($array);
         $columnString = array_keys($array);
@@ -44,6 +44,13 @@ class model {
     }
     public function delete() {
        
+    $modelName1=static::$modelName;
+        $tableName = $modelName1::tableName();
+        $sql= 'delete from '.$tableName.' where id='.$this->id;
+        $db = dbConn::getConnection();
+        $statement = $db->prepare($sql);
+        $statement->execute();
+        echo 'I just deleted record id = ' . $this->id.'<br>';
     }
     
 }
